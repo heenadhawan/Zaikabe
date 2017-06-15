@@ -1,14 +1,21 @@
 package com.niit.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+import javax.persistence.Id;
+@Entity
+@Table
 public class Category {
 /*
  * Private fields
  */
+	@Id
+	@GeneratedValue
 private int id;
 private String name;
 private String Description;
-private String imageUrl;
-private boolean active= true;
+
 public int getId() {
 	return id;
 }
@@ -27,17 +34,7 @@ public String getDescription() {
 public void setDescription(String description) {
 	Description = description;
 }
-public String getImageUrl() {
-	return imageUrl;
-}
-public void setImageUrl(String imageUrl) {
-	this.imageUrl = imageUrl;
-}
-public boolean isActive() {
-	return active;
-}
-public void setActive(boolean active) {
-	this.active = active;
-}
 
 }
+
+
