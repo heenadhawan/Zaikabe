@@ -1,34 +1,55 @@
 package com.niit.dto;
+import java.util.UUID;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
 
 public class Product 
 {
 @Id
-@GeneratedValue
+@GeneratedValue(strategy= GenerationType.IDENTITY)
 	
-int productid;
-String productname, productdescription;
-int Categoryid,Supplierid,Price,Quantity;
-public int getProductid() {
-	return productid;
+ private int id;
+private String code;
+ private String name, description;
+ @Column(name = "category_id")
+ private int Categoryid;
+ @Column(name = "supplier_id")
+ private int Supplierid;
+ @Column(name = "price")
+ private int Price;
+ @Column(name = "unit")
+ private int Quantity;
+ private int purchases,views;
+ private boolean is_active;
+public int getId() {
+	return id;
 }
-public void setProductid(int productid) {
-	this.productid = productid;
+
+//default constructor
+public Product(){
+	this.code = "PRD"+ UUID.randomUUID().toString().substring(26).toUpperCase();
 }
-public String getProductname() {
-	return productname;
+
+//generate getter and setters
+public void setId(int id) {
+	this.id = id;
 }
-public void setProductname(String productname) {
-	this.productname = productname;
+public String getName() {
+	return name;
 }
-public String getProductdescription() {
-	return productdescription;
+public void setName(String name) {
+	this.name = name;
 }
-public void setProductdescription(String productdescription) {
-	this.productdescription = productdescription;
+public String getDescription() {
+	return description;
+}
+public void setDescription(String description) {
+	this.description = description;
 }
 public int getCategoryid() {
 	return Categoryid;
@@ -54,6 +75,29 @@ public int getQuantity() {
 public void setQuantity(int quantity) {
 	Quantity = quantity;
 }
+public int getPurchases() {
+	return purchases;
+}
+public void setPurchases(int purchases) {
+	this.purchases = purchases;
+}
+public int getViews() {
+	return views;
+}
+public void setViews(int views) {
+	this.views = views;
+}
+public boolean isIs_active() {
+	return is_active;
+}
+public void setIs_active(boolean is_active) {
+	this.is_active = is_active;
+}
+ 
 
-	
+ 
+ 
+ 
+ 
+ 
 }
