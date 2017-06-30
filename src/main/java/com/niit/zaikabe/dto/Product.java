@@ -1,4 +1,4 @@
-package com.niit.dto;
+package com.niit.zaikabe.dto;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -15,7 +15,8 @@ public class Product
 	
  private int id;
 private String code;
- private String name, description;
+ private String name;
+ private String  description;
  @Column(name = "category_id")
  private int Categoryid;
  @Column(name = "supplier_id")

@@ -1,8 +1,8 @@
-package com.niit.dao;
+package com.niit.zaikabe.dao;
 
 import java.util.List;
 
-import com.niit.dto.Product;
+import com.niit.zaikabe.dto.Product;
 
 public interface ProductDao {
  

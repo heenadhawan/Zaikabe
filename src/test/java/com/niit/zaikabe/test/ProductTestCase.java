@@ -1,4 +1,4 @@
-package com.niit.zaikabe;
+package com.niit.zaikabe.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,8 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.dao.ProductDao;
-import com.niit.dto.Product;
+import com.niit.zaikabe.dao.ProductDao;
+import com.niit.zaikabe.dto.Product;
 
 public class ProductTestCase {
 private static  AnnotationConfigApplicationContext context;

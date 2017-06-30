@@ -1,33 +1,35 @@
-package com.niit.config;
-import org.apache.commons.dbcp2.BasicDataSource;
+package com.niit.zaikabe.config;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
+
+
 @Configuration
-@ComponentScan(basePackages={"com.niit.dto"})
+@ComponentScan(basePackages={"com.niit.zaikabe.dto"})
 @EnableTransactionManagement
 public class HibernateConfig {
 	
 
-	public final static String DATABASE_URL="jdbc:h2:~/test";
+	public final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/zaika";
 	public final static String DATABASE_DRIVER="org.h2.Driver";
 	public final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dialect";
 	public final static String DATABASE_USERNAME="sa";
 	public final static String DATABASE_PASSWORD="1234";
 	
 	//DataSource bean
+	@Bean(name="datasouce")
 	public DataSource getDataSource(){
 		BasicDataSource basicDataSource = new BasicDataSource();
 		
@@ -43,7 +45,7 @@ public class HibernateConfig {
 		public SessionFactory getSessionFactory(DataSource dataSource){
 			LocalSessionFactoryBuilder sessionFactory = new LocalSessionFactoryBuilder(dataSource);
 			sessionFactory.addProperties(getHibernateProperties());
-			sessionFactory.scanPackages("com.niit.dto");
+			sessionFactory.scanPackages("com.niit.zaikabe.dto");
 			return sessionFactory.buildSessionFactory();
 		}
 		
@@ -62,7 +64,8 @@ public class HibernateConfig {
 			HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 			return transactionManager;
 		}
-	}
+
+			}
 	
 		
 		

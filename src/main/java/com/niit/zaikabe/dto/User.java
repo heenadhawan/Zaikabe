@@ -1,4 +1,4 @@
-package com.niit.dto;
+package com.niit.zaikabe.dto;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.Table;
