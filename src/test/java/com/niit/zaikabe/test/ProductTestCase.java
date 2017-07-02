@@ -26,13 +26,13 @@ public static void init(){
 public void testCRUDProduct(){
 //create operation
 	product= new Product();
-	product.setName("DalMakhni");
-	product.setDescription("Cremy and Tasty");
-	product.setCategoryid(1);
-	product.setPrice(200);
+	product.setName("Gajar Halwa");
+	product.setDescription("Rich in flavour");
+	product.setCategoryid(4);
+	product.setPrice(90);
 	product.setIs_active(true);
 	product.setSupplierid(2);
-	product.setQuantity(4);
+	product.setQuantity(8);
 	
 assertEquals("Successfully added a product inside the table!",true,productDao.add(product));
 	}	

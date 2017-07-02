@@ -17,12 +17,26 @@
 </properties>
 
      <!-- Spring dependencies -->
-        <dependencies>    
+        <dependencies> 
+        <dependency>
+		<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		
+		<exclusions>
+		<exclusion>
+		<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</exclusion>
+		</exclusions>
+		</dependency>
+		<!-- spring webmvc -->   
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>		
 			<version>4.3.6.RELEASE</version>
 		</dependency>
+		<!-- context -->
 		<dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-context</artifactId>
@@ -89,7 +103,24 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.0</version>
+			<exclusions>
+		<exclusion>
+		<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</exclusion>
+		</exclusions>
 		</dependency>
+		<!-- SLF4J logging -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.1</version>
+			</dependency>
+			<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.24</version>
+			</dependency>
   </dependencies>
 <build>
 		<finalName>Zaikabe</finalName>
