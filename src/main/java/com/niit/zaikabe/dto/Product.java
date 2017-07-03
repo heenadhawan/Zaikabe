@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
 @Entity
 
 public class Product 
@@ -15,15 +18,19 @@ public class Product
 	
  private int id;
 private String code;
+@NotBlank (message="please enter the product name!")	
  private String name;
+@NotBlank (message="please enter the product description!")
  private String  description;
  @Column(name = "category_id")
  private int Categoryid;
  @Column(name = "supplier_id")
  private int Supplierid;
  @Column(name = "price")
+ @Min(value=10,message="The price cannot less than10 ")
  private int Price;
  @Column(name = "unit")
+ @Min(value=1,message="the Qantity must be 1 or more than 1")
  private int Quantity;
  private int purchases,views;
  private boolean is_active;
